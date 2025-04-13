@@ -3,7 +3,7 @@ name: Continuous Delivery
 on: 
   push:
     branches:
-      - main  # ou qualquer outra branch
+      - main
 
 jobs:
   deliver:
@@ -12,10 +12,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Simulando Continuous Delivery
+      - name: Zipar arquivos do projeto
+        run: zip -r projetozipado.zip *.py README.md
+
+      - name: Fazer upload do artefato zipado
         uses: actions/upload-artifact@v4
         with:
           name: projetozipado.zip
-          path: |
-            '**.py'
-            README.md
+          path: projetozipado.zip
