@@ -7,7 +7,7 @@ app = FastAPI()
 async def root():
     return{"message": "Hello Word"}
 
-# 127.0.0.1:/8000/teste1
+# 127.0.0.1:/8000/teste
 @app.get("/teste1")
 async def funcaoteste():
     return {"teste" : "deu certo"}
