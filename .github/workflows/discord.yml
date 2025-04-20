@@ -7,11 +7,11 @@ on:
 
 jobs:
   discord:
+    name: Enviar alerta para o Discord
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Enviar alerta para Discord
+      - name: Enviar mensagem via Discord Webhook
         uses: tsickert/discord-webhook@v7.0.0
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: "📣 Novo commit enviado para o branch main!"
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}  # Certifique-se de configurar o segredo no GitHub
+          content: "📢 Um novo commit foi feito no branch main!"
