@@ -42,8 +42,12 @@ jobs:
   discord:
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Discord
-        uses: Ilshidur/action-discord@master
+      - name: Enviar notificação para o Discord
+        uses: tsickert/discord-webhook@v5
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: "🚀 Projeto atualizado com sucesso! Novo push na branch `main`."
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+          content: |
+            ✅ *Deploy realizado com sucesso!*
+            🗂️ Projeto: **${{ github.repository }}**
+            🧑‍💻 Autor: **${{ github.actor }}**
+            🔁 Branch: **${{ github.ref_name }}**
