@@ -39,11 +39,4 @@ jobs:
           push: false
           tags: user/app:latest
 
-  message:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Discord Webhook Action
-        uses: tsickert/discord-webhook@v7.0.0
-        with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          content: "📢 Um novo commit foi feito no branch main!"
+
