@@ -3,7 +3,7 @@ name: Notificação de Alteração no Repositório
 on:
   push:
     branches:
-      - '*'  # Notifica em qualquer alteração em qualquer branch
+      - '*'  # Notifica em qualquer alteração em qualquer branch...
 
 jobs:
   notify:
