@@ -45,8 +45,8 @@ jobs:
     needs: [deliver, docker]
     steps:
       - name: Run Discord Webhook
-        uses: tsickert/discord-webhook@v6
+        uses: Ilshidur/action-discord@master
         with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          template: "avatar-with-link"
-          include-extras: true
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          message: "🚀 O deploy foi concluído com sucesso!"
+
