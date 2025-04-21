@@ -1,0 +1,24 @@
+name: Notificação de Alteração no Repositório
+
+on:
+  push:
+    branches:
+      - '*'  # Notifica em qualquer alteração em qualquer branch
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificação para o Discord
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: |
+            "🚨 *Novo Commit* no repositório!"
+            "\n**Autor**: ${{ github.actor }}"
+            "\n**Mensagem do Commit**: ${{ github.event.head_commit.message }}"
+            "\n**Data e Hora do Commit**: ${{ github.event.head_commit.timestamp }}"
+            "\n**Commit Hash**: ${{ github.sha }}"
+            "\n**Branch**: ${{ github.ref_name }}"  # Exibe o nome da branch
+            "\n\nAcesse o commit completo: https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
