@@ -25,4 +25,5 @@ jobs:
 
     - name: Executar testes
       run: |
-        pytest --maxfail=1 --disable-warnings  # <- sem o -q para ver os prints
+        pytest -s --maxfail=1 --disable-warnings
+
