@@ -40,15 +40,5 @@ jobs:
           push: false
           tags: user/app:latest
 
-    discord:
-    runs-on: ubuntu-latest
-    needs: [deliver, docker]
-    steps:
-      - name: Enviar notificação para o Discord
-        uses: Ilshidur/action-discord@master
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        with:
-          args: "🚀 Projeto atualizado com sucesso no repositório!"
-
+  
 
