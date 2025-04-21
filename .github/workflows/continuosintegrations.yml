@@ -38,3 +38,4 @@ jobs:
           context: .
           push: false
           tags: user/app:latest
+
