@@ -40,13 +40,15 @@ jobs:
           push: false
           tags: user/app:latest
 
-  discord:
+    discord:
     runs-on: ubuntu-latest
     needs: [deliver, docker]
     steps:
-      - name: Run Discord Webhook
+      - name: Enviar notificação para o Discord
         uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: "🚀 O deploy foi concluído com sucesso!"
+          args: "🚀 Projeto atualizado com sucesso no repositório!"
+
 
