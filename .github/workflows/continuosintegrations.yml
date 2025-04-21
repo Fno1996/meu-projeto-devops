@@ -46,4 +46,4 @@ jobs:
         uses: tsickert/discord-webhook@v7.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK}}
-          content: "📢 Um novo commit foi feito no branch main!"
+          content: "📢 Um novo commit foi feito no branch main!📢"
